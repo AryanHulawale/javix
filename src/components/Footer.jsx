@@ -119,7 +119,7 @@ export const Footer = () => {
             </p>
             <div className="flex gap-3 mt-5">
               <a
-                href="https://linkedin.com/company/javix"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full flex items-center justify-center bg-white/10 hover:bg-white/20 transition-colors"
@@ -129,7 +129,7 @@ export const Footer = () => {
                 <LinkedinIcon />
               </a>
               <a
-                href="https://twitter.com/javix"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full flex items-center justify-center bg-white/10 hover:bg-white/20 transition-colors"
@@ -139,7 +139,7 @@ export const Footer = () => {
                 <TwitterIcon />
               </a>
               <a
-                href="https://github.com/javix"
+                href="https://github.com/AryanHulawale"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full flex items-center justify-center bg-white/10 hover:bg-white/20 transition-colors"
@@ -149,7 +149,7 @@ export const Footer = () => {
                 <GithubIcon />
               </a>
               <a
-                href="https://facebook.com/javix"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full flex items-center justify-center bg-white/10 hover:bg-white/20 transition-colors"
