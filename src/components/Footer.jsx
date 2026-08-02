@@ -159,7 +159,7 @@ export const Footer = () => {
                 <FacebookIcon />
               </a>
             </div>
-          </div>
+          </div> 
 
           <div>
             <h4 className="text-sm font-semibold tracking-widest text-white/80 mb-4">COMPANY</h4>
