@@ -7,40 +7,83 @@ import dentist from "../assets/dentist.png";
 import udaan from "../assets/udaan.png";
 import deepanjali from "../assets/deepanjali.png";
 import bhavna from "../assets/bhavana.png";
+import trendingtraders from "../assets/trendingtraders.png";
+import sprakhi from "../assets/rakhi.png";
+import jewelpark from "../assets/jweller.png";
+import banquethall from "../assets/banquet.png";
+import cakeshop from "../assets/cake.png";
 
 const projects = [
-  { 
-    title: "Mankar Classes", 
-    category: "Education", 
-    desc: "Online learning platform for competitive exam preparation with live classes and study materials.", 
-    img: mankar,
-    link: "https://mankarclasses.vercel.app/"
-  },
-  { 
-    title: "Dentist Clinic", 
-    category: "Healthcare", 
-    desc: "Modern dental clinic website with appointment booking and patient management system.", 
+
+  {
+    title: "Dentist Clinic",
+    category: "Healthcare",
+    desc: "Modern dental clinic website with appointment booking and patient management system.",
     img: dentist,
     link: "https://dentist-beta-beige.vercel.app/"
   },
-  { 
-    title: "Udaan Ek Soch", 
-    category: "Non-Profit", 
-    desc: "Empowerment platform for underprivileged communities with donation and volunteer management.", 
-    img: udaan,
-    link: "https://udaaneksoch.vercel.app/"
+
+  {
+    title: "Trending Traders",
+    category: "Finance",
+    desc: "Financial advisory platform offering market insights, trading guidance, and portfolio strategy.",
+    img: trendingtraders,
+    link: "https://trendingtraders.in"
   },
-  { 
-    title: "Deepanjali Labs", 
-    category: "Technology", 
-    desc: "Innovative tech solutions provider showcasing services and project portfolio.", 
+  {
+    title: "Sprakhi",
+    category: "E-Commerce",
+    desc: "Online rakhi store featuring festive collections with seamless browsing and ordering.",
+    img: sprakhi,
+    link: "https://sprakhi.in"
+  },
+  {
+    title: "Jewel Park",
+    category: "E-Commerce",
+    desc: "Elegant jewellery store showcasing curated collections with a premium shopping experience.",
+    img: jewelpark,
+    link: "https://jewel-park-design.vercel.app/"
+  },
+  {
+    title: "Banquet Hall",
+    category: "Events",
+    desc: "Event venue website with booking inquiries, gallery, and amenities for weddings and functions.",
+    img: banquethall,
+    link: "https://banquet-hall-fawn.vercel.app/"
+  },
+  {
+    title: "Deepanjali Labs",
+    category: "Technology",
+    desc: "Innovative tech solutions provider showcasing services and project portfolio.",
     img: deepanjali,
     link: "https://dipanjali-labs.vercel.app/"
   },
-  { 
-    title: "Bhavna", 
-    category: "Business", 
-    desc: "Corporate website for professional services with modern design and client engagement tools.", 
+  {
+    title: "Cake Shop",
+    category: "Food & Beverage",
+    desc: "Bakery storefront highlighting custom cakes, desserts, and easy online ordering.",
+    img: cakeshop,
+    link: "https://cake-shop-green-one.vercel.app/"
+  },
+  {
+    title: "Mankar Classes",
+    category: "Education",
+    desc: "Online learning platform for competitive exam preparation with live classes and study materials.",
+    img: mankar,
+    link: "https://mankarclasses.vercel.app/"
+  },
+  {
+    title: "Udaan Ek Soch",
+    category: "Non-Profit",
+    desc: "Empowerment platform for underprivileged communities with donation and volunteer management.",
+    img: udaan,
+    link: "https://udaaneksoch.vercel.app/"
+  },
+
+  {
+    title: "Bhavna",
+    category: "Business",
+    desc: "Corporate website for professional services with modern design and client engagement tools.",
     img: bhavna,
     link: "https://bhavna-alpha.vercel.app/"
   },
@@ -77,11 +120,10 @@ const Portfolio = () => {
                 key={f}
                 onClick={() => setFilter(f)}
                 data-testid={`portfolio-filter-${f.toLowerCase().replace(/\s|\//g, "-")}`}
-                className={`px-4 py-2 rounded-full text-xs font-bold tracking-widest transition-all ${
-                  filter === f
-                    ? "javix-cta"
-                    : "bg-[#0a1230]/5 text-[#0a1230]/70 hover:bg-[#0a1230]/10"
-                }`}
+                className={`px-4 py-2 rounded-full text-xs font-bold tracking-widest transition-all ${filter === f
+                  ? "javix-cta"
+                  : "bg-[#0a1230]/5 text-[#0a1230]/70 hover:bg-[#0a1230]/10"
+                  }`}
               >
                 {f.toUpperCase()}
               </button>
@@ -91,9 +133,9 @@ const Portfolio = () => {
           <div className="grid md:grid-cols-2 gap-7">
             {visible.map((p, i) => (
               <ScrollFadeIn key={p.title} delay={i * 70}>
-                <a 
-                  href={p.link} 
-                  target="_blank" 
+                <a
+                  href={p.link}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="javix-card overflow-hidden group block"
                   data-testid={`portfolio-card-${i}`}
