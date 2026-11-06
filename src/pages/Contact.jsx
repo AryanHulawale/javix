@@ -2,6 +2,10 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { Mail, Phone, MapPin, Clock, ArrowRight } from "lucide-react";
 import ScrollFadeIn from "../components/ScrollFadeIn";
+import developer from "../assets/developer.png";
+
+const WEB3FORMS_KEY =
+  import.meta.env.VITE_WEB3FORMS_KEY || "b09e16e6-c0de-43b7-aee1-32a6f029e026";
 
 const inputCls =
   "w-full px-4 py-3 rounded-xl bg-[#f4f5fa] text-[#0a1230] placeholder:text-[#0a1230]/40 outline-none border border-transparent focus:border-[#3B82F6] focus:bg-white transition-colors text-sm";
@@ -16,10 +20,17 @@ const Field = ({ label, children, testId }) => (
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", company: "", budget: "", message: "" });
   const [submitting, setSubmitting] = useState(false);
+  const [failed, setFailed] = useState(false);
 
   const update = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
-  const onSubmit = (e) => {
+  const mailtoHref = `mailto:javixagency@gmail.com?subject=${encodeURIComponent(
+    `New project inquiry from ${form.name || "website visitor"}`
+  )}&body=${encodeURIComponent(
+    `Name: ${form.name}\nEmail: ${form.email}\nCompany: ${form.company}\nBudget: ${form.budget}\n\n${form.message}`
+  )}`;
+
+  const onSubmit = async (e) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) {
       toast.error("Please fill in your name, email, and message.");
@@ -30,11 +41,33 @@ const Contact = () => {
       return;
     }
     setSubmitting(true);
-    setTimeout(() => {
+    setFailed(false);
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `New project inquiry from ${form.name}`,
+          from_name: "JAVIX Website",
+          name: form.name,
+          email: form.email,
+          company: form.company,
+          budget: form.budget,
+          message: form.message,
+          botcheck: "",
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) throw new Error(data.message || "Request failed");
       toast.success("Thanks! Our team will reach out within 1 business day.");
       setForm({ name: "", email: "", company: "", budget: "", message: "" });
+    } catch {
+      setFailed(true);
+      toast.error("Could not send your message. Please email javixagency@gmail.com directly.");
+    } finally {
       setSubmitting(false);
-    }, 600);
+    }
   };
 
   return (
@@ -60,7 +93,7 @@ const Contact = () => {
             <div className="javix-card overflow-hidden h-full flex flex-col">
               <div className="relative h-72">
                 <img
-                  src="https://images.unsplash.com/photo-1573497019418-b400bb3ab074?w=900&q=80"
+                  src={developer}
                   alt="Support agent"
                   className="w-full h-full object-cover"
                 />
@@ -121,6 +154,8 @@ const Contact = () => {
                 </Field>
               </div>
 
+              <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} aria-hidden="true" tabIndex={-1} autoComplete="off" />
+
               <div className="mt-4">
                 <Field label="How can we help?" testId="contact-message">
                   <textarea
@@ -142,6 +177,16 @@ const Contact = () => {
               >
                 {submitting ? "Sending..." : "Get Started Now"} {!submitting && <ArrowRight size={18} />}
               </button>
+
+              {failed && (
+                <a
+                  href={mailtoHref}
+                  className="mt-3 text-center text-sm font-semibold text-[#4F29B8] hover:underline"
+                  data-testid="contact-email-fallback"
+                >
+                  Email us directly instead
+                </a>
+              )}
             </form>
           </ScrollFadeIn>
         </div>

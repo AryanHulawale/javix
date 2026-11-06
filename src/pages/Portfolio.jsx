@@ -2,33 +2,30 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import ScrollFadeIn from "../components/ScrollFadeIn";
-import mankar from "../assets/mankar.png";
 import dentist from "../assets/dentist.png";
-import udaan from "../assets/udaan.png";
 import deepanjali from "../assets/deepanjali.png";
-import bhavna from "../assets/bhavana.png";
 import trendingtraders from "../assets/trendingtraders.png";
 import sprakhi from "../assets/rakhi.png";
-import jewelpark from "../assets/jweller.png";
 import banquethall from "../assets/banquet.png";
-import cakeshop from "../assets/cake.png";
+import gavankar from "../assets/GavankarFinserv.png";
+import manchanda from "../assets/Manchanda.png";
+import kairr from "../assets/Kairr.png";
 
 const projects = [
 
   {
-    title: "Dentist Clinic",
-    category: "Healthcare",
-    desc: "Modern dental clinic website with appointment booking and patient management system.",
-    img: dentist,
-    link: "https://dentist-beta-beige.vercel.app/"
+    title: "Kairr Clothing",
+    category: "E-Commerce",
+    desc: "Contemporary clothing brand with a bold visual identity, curated collections, and a smooth shopping experience.",
+    img: kairr,
+    link: "https://kairr-clothing.vercel.app/"
   },
-
   {
-    title: "Trending Traders",
+    title: "Gavankar Finserv",
     category: "Finance",
-    desc: "Financial advisory platform offering market insights, trading guidance, and portfolio strategy.",
-    img: trendingtraders,
-    link: "https://trendingtraders.in"
+    desc: "AMFI-registered mutual fund distribution practice helping families invest with discipline — goal by goal.",
+    img: gavankar,
+    link: "https://gavankarfinserv.in"
   },
   {
     title: "Sprakhi",
@@ -38,11 +35,18 @@ const projects = [
     link: "https://sprakhi.in"
   },
   {
-    title: "Jewel Park",
-    category: "E-Commerce",
-    desc: "Elegant jewellery store showcasing curated collections with a premium shopping experience.",
-    img: jewelpark,
-    link: "https://jewel-park-design.vercel.app/"
+    title: "Dentist Clinic",
+    category: "Healthcare",
+    desc: "Modern dental clinic website with appointment booking and patient management system.",
+    img: dentist,
+    link: "https://dentist-beta-beige.vercel.app/"
+  },
+  {
+    title: "Manchanda Mishthan Bhandar",
+    category: "Food & Beverage",
+    desc: "Handcrafted mithai made in pure desi ghee, sweetening Saharanpur with tradition since 1984.",
+    img: manchanda,
+    link: "https://manchandamishthanbhandar.com"
   },
   {
     title: "Banquet Hall",
@@ -59,33 +63,11 @@ const projects = [
     link: "https://dipanjali-labs.vercel.app/"
   },
   {
-    title: "Cake Shop",
-    category: "Food & Beverage",
-    desc: "Bakery storefront highlighting custom cakes, desserts, and easy online ordering.",
-    img: cakeshop,
-    link: "https://cake-shop-green-one.vercel.app/"
-  },
-  {
-    title: "Mankar Classes",
-    category: "Education",
-    desc: "Online learning platform for competitive exam preparation with live classes and study materials.",
-    img: mankar,
-    link: "https://mankarclasses.vercel.app/"
-  },
-  {
-    title: "Udaan Ek Soch",
-    category: "Non-Profit",
-    desc: "Empowerment platform for underprivileged communities with donation and volunteer management.",
-    img: udaan,
-    link: "https://udaaneksoch.vercel.app/"
-  },
-
-  {
-    title: "Bhavna",
-    category: "Business",
-    desc: "Corporate website for professional services with modern design and client engagement tools.",
-    img: bhavna,
-    link: "https://bhavna-alpha.vercel.app/"
+    title: "Trending Traders",
+    category: "Finance",
+    desc: "Financial advisory platform offering market insights, trading guidance, and portfolio strategy.",
+    img: trendingtraders,
+    link: "https://trendingtraders.in"
   },
 ];
 
